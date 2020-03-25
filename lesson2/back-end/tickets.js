@@ -7,13 +7,16 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+app.use(express.static('public'));
+
 let tickets = [];
 let id = 0;
 
+//create
 app.get('/api/tickets', (req, res) => {
   res.send(tickets);
 });
-
+//read
 app.post('/api/tickets', (req, res) => {
   id = id + 1;
   let ticket = {
@@ -24,7 +27,7 @@ app.post('/api/tickets', (req, res) => {
   tickets.push(ticket);
   res.send(ticket);
 });
-
+//delete
 app.delete('/api/tickets/:id', (req, res) => {
   let id = parseInt(req.params.id);
   let removeIndex = tickets.map(ticket => {
