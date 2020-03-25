@@ -27,7 +27,6 @@ app.post('/api/tickets', (req, res) => {
   tickets.push(ticket);
   res.send(ticket);
 });
-//delete
 app.delete('/api/tickets/:id', (req, res) => {
   let id = parseInt(req.params.id);
   let removeIndex = tickets.map(ticket => {
